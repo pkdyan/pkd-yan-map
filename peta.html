@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawasan Operasi PKD Yan</title>
+    <!-- Memuat Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Menggunakan font Inter */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f9;
+        }
+        /* Styling tambahan untuk kotak info/peta */
+        .info-box {
+            border: 1px solid #e0e0e0;
+            background-color: white;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .info-box:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Shadow lebih kuat pada hover */
+        }
+        /* Menggunakan warna yang mendekati peta asli */
+        .color-kr { background-color: #fcd34d; } /* Kuning - Kertang Rumbia */
+        .color-gch { background-color: #ef4444; } /* Merah - Guar Chempedak */
+        .color-jrk { background-color: #a78bfa; } /* Ungu - Jarak */
+        .color-sld { background-color: #34d399; } /* Hijau - Sungai Limau Dalam */
+        .color-yan { background-color: #3b82f6; } /* Biru - Yan */
+        
+        /* Stripe effect untuk tabel data */
+        .data-table tbody tr:nth-child(odd) {
+            background-color: #f9fafb;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mx-auto p-4 md:p-8">
+        <!-- JUDUL UTAMA -->
+        <header class="text-center mb-10 bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-6 rounded-2xl shadow-2xl">
+            <h1 class="text-4xl font-black tracking-tighter md:text-5xl">
+                KAWASAN OPERASI PERKHIDMATAN DI BAWAH PEJABAT KESIHATAN DAERAH YAN
+            </h1>
+        </header>
+
+        <!-- MAIN CONTENT: 3-COLUMN LAYOUT (Desktop) / STACKED (Mobile) -->
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- KOLOM 1: Peta Kiri (Peta Operasi & BAKAS Info) -->
+            <div class="space-y-8">
+                <div class="info-box p-6 rounded-xl shadow-lg">
+                    <h2 class="text-xl font-bold mb-4 border-b pb-2 text-gray-800">Peta Operasi PKD Yan (Visual)</h2>
+                    
+                    <!-- Informasi Kawasan Operasi -->
+                    <div class="border-l-4 border-green-500 bg-green-50 p-4 rounded-lg text-sm mb-4">
+                        <p class="font-bold text-green-700">Kawasan Operasi BAKAS:</p>
+                        <p class="text-gray-700 mt-1">
+                            Meliputi kawasan **bukan** dalam operasi PKD, dikhususkan untuk Unit Kesihatan Awam dan Kebersihan Alam Sekitar (BAKAS).
+                        </p>
+                    </div>
+                    
+                    <!-- Peta BAKAS (Disematkan dari URL baru) -->
+                    <div class="mt-4 rounded-lg overflow-hidden border-2 border-gray-200 shadow-md">
+                        <img src="https://i.postimg.cc/x1HnvmJP/Whats-App-Image-2025-11-09-at-09-57-14-7a69821b.jpg" alt="Peta Kawasan Operasi PKD Yan" class="w-full h-auto object-cover transition-transform duration-500 hover:scale-[1.01]">
+                    </div>
+                </div>
+            </div>
+
+            <!-- KOLOM 2: Peta Utama (Embedded Map) - Lebih Menarik -->
+            <div class="lg:col-span-1 space-y-8">
+                <div class="info-box p-6 rounded-xl shadow-lg flex flex-col h-full">
+                    <h2 class="text-xl font-bold mb-4 border-b pb-2 text-gray-800">Peta Interaktif Operasi PKD Yan</h2>
+
+                    <!-- Troubleshooting Note - Lebih menonjol -->
+                    <div class="text-sm text-red-700 bg-red-100 p-3 rounded-lg border border-red-300 mb-4">
+                        ❗ **PENTING:** Jika peta Google Maps tidak kelihatan (disebabkan sekatan *iframe*), sila klik <a href="https://www.google.com/maps/d/embed?mid=1MlVu-UiignTItIHJCv-PHSZPOzbOxIk&ehbc=2E312F" target="_blank" class="font-extrabold underline hover:text-red-900 transition-colors">pautan ini untuk melihat peta interaktif.</a>
+                    </div>
+                    
+                    <!-- Embed Google Map yang disediakan pengguna, dibuat responsif -->
+                    <div class="flex-grow w-full h-[550px] overflow-hidden rounded-lg shadow-xl border-4 border-blue-500">
+                        <iframe 
+                            src="https://www.google.com/maps/d/embed?mid=1MlVu-UiignTItIHJCv-PHSZPOzbOxIk&ehbc=2E312F" 
+                            class="w-full h-full rounded-md" 
+                            style="border:0;" 
+                            loading="lazy" 
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KOLOM 3: Data & Legend (Lebih Tersusun) -->
+            <div class="space-y-8">
+                <!-- Tadbir Urus PKD Yan - Maklumat Utama -->
+                <div class="info-box p-6 rounded-xl shadow-lg">
+                    <h2 class="text-xl font-bold mb-4 border-b pb-2 text-gray-800">1. Data Populasi Kawasan</h2>
+                    <table class="w-full text-sm data-table border-collapse">
+                        <thead class="bg-blue-100 text-blue-800">
+                            <tr class="text-left text-xs uppercase font-semibold">
+                                <th class="py-2 px-2">Pusat Kesihatan (KK)</th>
+                                <th class="py-2 px-2 text-right">Populasi (Anggaran 2017)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b"><td>KK Kertang Rumbia</td><td class="text-right py-2 px-2">74,200</td></tr>
+                            <tr class="border-b"><td>KK Guar Chempedak</td><td class="text-right py-2 px-2">29,928</td></tr>
+                            <tr class="border-b"><td>KK Jarak/Yan Kecil</td><td class="text-right py-2 px-2">10,959</td></tr>
+                            <tr class="border-b"><td>KK Sungai Limau Dalam</td><td class="text-right py-2 px-2">43,280</td></tr>
+                            <tr class="border-b"><td>KK Yan</td><td class="text-right py-2 px-2">27,175</td></tr>
+                            <tr class="font-black bg-blue-50 text-blue-700"><td>JUMLAH KESELURUHAN</td><td class="text-right py-2 px-2">185,542</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Premis di Bawah Pemantauan -->
+                <div class="info-box p-6 rounded-xl shadow-lg">
+                    <h2 class="text-xl font-bold mb-4 border-b pb-2 text-gray-800">2. Premis di Bawah Pemantauan</h2>
+                    <ul class="text-base space-y-2">
+                        <li class="flex justify-between items-center border-b pb-2">
+                            <span class="text-gray-600">Sekolah / Tadika:</span> <span class="font-bold text-blue-600">57 premis</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b pb-2">
+                            <span class="text-gray-600">Pasar Awam:</span> <span class="font-bold text-blue-600">3 premis</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b pb-2">
+                            <span class="text-gray-600">Premis Hotel & Pelancongan:</span> <span class="font-bold text-blue-600">10 lokasi</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b pb-2">
+                            <span class="text-gray-600">Premis Makanan:</span> <span class="font-bold text-blue-600">327 premis</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b pb-2">
+                            <span class="text-gray-600">Perumahan (Blok/Unit):</span> <span class="font-bold text-blue-600">3 blok/549 unit</span>
+                        </li>
+                        <li class="flex justify-between items-center pb-2">
+                            <span class="text-gray-600">Rumah Persendirian BAKAS:</span> <span class="font-extrabold text-lg text-green-700">18,934 premis</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Potensi Kod Warna Kawasan -->
+                <div class="info-box p-6 rounded-xl shadow-lg">
+                    <h2 class="text-xl font-bold mb-4 border-b pb-2 text-gray-800">3. Legend Kod Warna Kawasan</h2>
+                    <div class="space-y-3 text-base">
+                        <div class="flex items-center">
+                            <span class="w-6 h-6 rounded-full mr-4 color-kr ring-4 ring-yellow-200"></span>
+                            <span>KK Kertang Rumbia</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-6 h-6 rounded-full mr-4 color-gch ring-4 ring-red-200"></span>
+                            <span>KK Guar Chempedak</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-6 h-6 rounded-full mr-4 color-jrk ring-4 ring-purple-200"></span>
+                            <span>KK Jarak</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-6 h-6 rounded-full mr-4 color-sld ring-4 ring-green-200"></span>
+                            <span>KK Sungai Limau Dalam</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-6 h-6 rounded-full mr-4 color-yan ring-4 ring-blue-200"></span>
+                            <span>KK Yan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER: Skop Perkhidmatan & Keterangan (FULL WIDTH, Lebih Menarik) -->
+        <section class="mt-10 info-box p-8 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-black mb-6 text-gray-900 border-b-4 border-indigo-500 pb-2">SKOP PERKHIDMATAN UTAMA PKD YAN</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Kawalan Penyakit -->
+                <div class="p-4 bg-gray-50 border-l-4 border-blue-600 rounded-lg shadow-md">
+                    <p class="font-extrabold text-xl text-blue-700 mb-2">1. Kawalan Penyakit</p>
+                    <p class="text-sm text-gray-700">
+                        Pencegahan penyakit (Vektor & Tidak Berjangkit) secara bersepadu dalam komuniti melalui program promosi kesihatan, penguatkuasaan undang-undang, penilaian risiko, dan penyediaan maklumat kesihatan.
+                    </p>
+                </div>
+
+                <!-- Kesihatan Persekitaran & Perubatan Primer -->
+                <div class="p-4 bg-gray-50 border-l-4 border-green-600 rounded-lg shadow-md">
+                    <p class="font-extrabold text-xl text-green-700 mb-2">2. Kesihatan Persekitaran & Primer</p>
+                    <p class="text-sm text-gray-700">
+                        Perancangan, pelaksanaan dan prosesi kesihatan primer/pelbagai program innovasi. Ini termasuk pencegahan penyakit secara berkesan dan menyeluruh.
+                    </p>
+                </div>
+
+                <!-- Perkhidmatan Kesihatan Ibu dan Anak (KIA) -->
+                <div class="p-4 bg-gray-50 border-l-4 border-pink-600 rounded-lg shadow-md">
+                    <p class="font-extrabold text-xl text-pink-700 mb-2">3. Perkhidmatan KIA</p>
+                    <h3 class="font-semibold text-lg text-pink-600 mt-2 border-b border-pink-200 pb-1">Lokasi Kesihatan KIA:</h3>
+                    <div class="grid grid-cols-2 gap-2 text-xs mt-2">
+                        <ul class="list-none space-y-0.5 text-gray-700">
+                            <li>• KK Kertang Rumbia</li>
+                            <li>• KK Guar Chempedak</li>
+                            <li>• KK Jarak</li>
+                            <li>• KK Sungai Limau Dalam</li>
+                        </ul>
+                        <ul class="list-none space-y-0.5 text-gray-700">
+                            <li>• KK Yan</li>
+                            <li>• KK Kg. Teroi</li>
+                            <li>• KK Batu 17</li>
+                            <li>• KK Kg. Ruat</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
